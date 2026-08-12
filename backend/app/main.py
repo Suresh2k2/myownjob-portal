@@ -30,7 +30,7 @@ app.include_router(jobs.router, prefix="/api/v1")
 
 @app.on_event("startup")
 def on_startup():
-    Base.metadata.create_all(bind=engine)
+    verify_db_connection()
 
 
 @app.get("/")
