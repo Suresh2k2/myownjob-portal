@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1",
+  baseURL: API_URL.replace(/\/$/, "") + "/",
 });
 
 api.interceptors.request.use((config) => {
@@ -23,7 +25,7 @@ api.interceptors.response.use(
       if (refreshToken) {
         try {
           const res = await axios.post(
-            `${api.defaults.baseURL}/auth/refresh`,
+            `${api.defaults.baseURL}auth/refresh`,
             { refresh_token: refreshToken }
           );
           const { access_token, refresh_token } = res.data;
