@@ -1,58 +1,118 @@
 # Job Portal & Application Tracker
 
-A full-stack job portal built with **FastAPI**, **SQLAlchemy**, **MySQL**, **React** and **JWT authentication**.
+A full-stack job portal and application tracking platform built with **FastAPI, React, MySQL, SQLAlchemy, and JWT authentication**.
 
-## Project Structure
+The platform supports two types of users:
 
-```
-job-portal/
-├── backend/          # FastAPI REST API
-├── frontend/         # React SPA
-├── docs/             # Documentation & SQL schemas
-├── .gitignore
-└── README.md
-```
+- **Job Seekers** — browse jobs, apply for positions, manage profiles, upload resumes, and track applications.
+- **Recruiters** — create company profiles, post jobs, view applicants, and manage application status.
 
-## Tech Stack
+---
 
-- **Backend:** Python 3.11+, FastAPI, SQLAlchemy 2.0, Pydantic v2
-- **Database:** MySQL 8.x
-- **Auth:** JWT (python-jose + passlib)
-- **Frontend:** React 18, Vite, React Router v6, Axios
-- **Migrations:** Alembic
+## ✨ Features
 
-## Getting Started
+### 👨‍💼 Job Seekers
+
+- Create an account and securely log in
+- Manage personal profile
+- Add skills and contact information
+- Upload and view resume
+- Browse available jobs
+- Search and explore job opportunities
+- View job details
+- Apply for jobs
+- Track submitted applications
+- View application status:
+  - Pending
+  - Accepted
+  - Rejected
+
+### 🏢 Recruiters
+
+- Recruiter registration and authentication
+- Create and manage company information
+- Post new job openings
+- View jobs posted by the recruiter
+- View applicants for each job
+- Review candidate profiles
+- View candidate resume
+- Accept applications
+- Reject applications
+- Manage applicant status
+
+### 🔐 Authentication & Security
+
+- JWT-based authentication
+- Password hashing
+- Role-based access control
+- Protected API endpoints
+- Recruiter-only job management
+- Job-seeker-only application functionality
+- Backend authorization for applicant management
+
+---
+
+## 🛠️ Tech Stack
 
 ### Backend
 
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env   # edit with your MySQL credentials
-uvicorn app.main:app --reload --port 8000
-```
-
-### Database
-
-```bash
-mysql -u root -p < docs/schema.sql
-```
+- Python 3.11+
+- FastAPI
+- SQLAlchemy 2.0
+- Pydantic v2
+- Alembic
+- MySQL 8.x
+- Python-JOSE
+- Passlib
 
 ### Frontend
 
-```bash
-cd frontend
-npm install
-cp .env.example .env
-npm run dev
-```
+- React 18
+- Vite
+- React Router v6
+- Axios
+- CSS
 
-## API Docs
+### Database
 
-Once running, visit: `http://localhost:8000/docs` (Swagger UI)
+- MySQL 8.x
+- SQLAlchemy ORM
+- Alembic migrations
 
-## License
+---
 
-MIT
+## 📁 Project Structure
+
+```text
+job-portal/
+│
+├── backend/
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── database/
+│   │   └── core/
+│   │
+│   ├── alembic/
+│   ├── requirements.txt
+│   └── .env.example
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── context/
+│   │   └── App.jsx
+│   │
+│   ├── package.json
+│   └── .env.example
+│
+├── docs/
+│   └── schema.sql
+│
+├── .gitignore
+└── README.md
